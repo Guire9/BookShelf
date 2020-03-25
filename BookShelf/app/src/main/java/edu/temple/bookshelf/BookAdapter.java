@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Set;
 
 public class BookAdapter extends BaseAdapter implements ListAdapter {
     private Context context;
@@ -49,9 +50,18 @@ public class BookAdapter extends BaseAdapter implements ListAdapter {
         TextView book_title= view.findViewById(R.id.book_title);
         TextView author = view.findViewById(R.id.book_author);
 
-        book_title.setText(books.get(position).values().toString());
-        author.setText(books.get(position).keySet().toString());
+        Set<String> keys = books.get(position).keySet();
+        for(String k : keys){
+            if(k.equals("author")){
+                author.setText(books.get(position).get(k));
+            }else if(k.equals("title")){
+                book_title.setText(books.get(position).get(k));
+            }
+        }
 
+        /*book_title.setText(books.get(position).values().toString());
+        author.setText(books.get(position).keySet().toString());
+            */
         return view;
 
     }
