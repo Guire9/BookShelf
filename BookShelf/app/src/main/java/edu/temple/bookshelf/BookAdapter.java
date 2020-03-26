@@ -15,31 +15,25 @@ import java.util.Set;
 public class BookAdapter extends BaseAdapter implements ListAdapter {
     private Context context;
     private ArrayList<HashMap<String,String>> books;
-    private String bookTitle, bookAuthor;
     LayoutInflater inflater;
-
 
     public BookAdapter(Context context,ArrayList<HashMap<String,String>>books){
         this.context=context;
         this.books=books;
         inflater=(LayoutInflater.from(context));
     }
-
     @Override
     public int getCount() {
         return books.size();
     }
-
     @Override
     public Object getItem(int position) {
         return books.get(position);
     }
-
     @Override
     public long getItemId(int position) {
         return 0;
     }
-
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         View view = convertView;
@@ -58,11 +52,7 @@ public class BookAdapter extends BaseAdapter implements ListAdapter {
                 book_title.setText(books.get(position).get(k));
             }
         }
-
-        /*book_title.setText(books.get(position).values().toString());
-        author.setText(books.get(position).keySet().toString());
-            */
         return view;
-
     }
 }
+

@@ -3,12 +3,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".MainActivity" >
+    tools:context=".BookListFragment">
 
-
-    <fragment
-        android:id="@+id/fragment1"
-        android:name="edu.temple.bookshelf.BookListFragment"
+    <ListView
+        android:id="@+id/booksView"
         android:layout_width="match_parent"
-        android:layout_height="742dp" />
+        android:layout_height="match_parent" />
 </LinearLayout>
