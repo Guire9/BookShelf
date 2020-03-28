@@ -5,6 +5,7 @@ import android.content.Context;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -26,16 +27,20 @@ public class BookListFragment extends Fragment {
     private String title;
     private String author;
 
+    interface BookSelectedInterface{
+        void BookSelected(String a, String t, int position);
+    }
     public BookListFragment() {
         // Required empty public constructor
     }
+    @Override
     public void onAttach(Context context){
         super.onAttach(context);
 
         if(context instanceof BookSelectedInterface){
             parentActivity = (BookSelectedInterface) context;
         }else{
-            throw new RuntimeException("Implemnt the BookSelect interace");
+            throw new RuntimeException("Implement the BookSelect interace");
         }
     }
     @Override
@@ -54,14 +59,10 @@ public class BookListFragment extends Fragment {
           public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
               author=books.get(position).get("author");
               title=books.get(position).get("title");
-              parentActivity.BookSelected(author,title);
+              parentActivity.BookSelected(author,title, position);
+
           }
       });
         return rootView;
     }
-
-    interface BookSelectedInterface{
-         void BookSelected(String a, String t);
-    }
-
 }
