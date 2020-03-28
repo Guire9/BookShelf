@@ -8,12 +8,12 @@
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:layout_weight="1"
-        android:text="TextView" />
+        />
 
     <TextView
-        android:id="@+id/book_author"
+        android:id="@+id/book_author22"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:layout_weight="1"
-        android:text="TextView" />
+         />
 </LinearLayout>

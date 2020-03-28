@@ -26,14 +26,17 @@ public class BookAdapter extends BaseAdapter implements ListAdapter {
     public int getCount() {
         return books.size();
     }
+
     @Override
     public Object getItem(int position) {
         return books.get(position);
     }
+
     @Override
     public long getItemId(int position) {
         return 0;
     }
+
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         View view = convertView;
@@ -42,7 +45,7 @@ public class BookAdapter extends BaseAdapter implements ListAdapter {
             view = inflater.inflate(R.layout.book_list,null);
         }
         TextView book_title= view.findViewById(R.id.book_title);
-        TextView author = view.findViewById(R.id.book_author);
+        TextView author = view.findViewById(R.id.book_author22);
 
         Set<String> keys = books.get(position).keySet();
         for(String k : keys){

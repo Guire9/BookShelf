@@ -1,6 +1,5 @@
 package edu.temple.bookshelf;
 
-
 import android.content.Context;
 import android.os.Bundle;
 
@@ -17,15 +16,10 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-/**
- * A simple {@link Fragment} subclass.
- */
 public class BookListFragment extends Fragment {
     private  BookSelectedInterface parentActivity;
     private View rootView;
     private ListView bookList;
-    private String title;
-    private String author;
 
     interface BookSelectedInterface{
         void BookSelected(HashMap<String,String> b, int position);
@@ -46,20 +40,18 @@ public class BookListFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+                             final Bundle savedInstanceState) {
         rootView= inflater.inflate(R.layout.fragment_book_list, container, false);
+        bookList = rootView.findViewById(R.id.booksView);
 
-        bookList = (ListView)rootView.findViewById(R.id.booksView);
         final ArrayList<HashMap<String,String>> books =BookHelper.gernerateBooks();
-
         BookAdapter customaAdapter = new BookAdapter(rootView.getContext(),books);
-        bookList.setAdapter(customaAdapter);
 
+        bookList.setAdapter(customaAdapter);
         bookList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
           @Override
           public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-              parentActivity.BookSelected(books.get(position), position);
-
+                  parentActivity.BookSelected(books.get(position), position);
           }
       });
         return rootView;

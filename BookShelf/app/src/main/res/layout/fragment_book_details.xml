@@ -6,7 +6,6 @@
     tools:context=".BookDetailsFragment"
     android:id="@+id/bookDetails">
 
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -16,13 +15,15 @@
             android:id="@+id/book"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:text="@string/test" />
+           />
 
         <TextView
-            android:id="@+id/book_author"
+            android:id="@+id/book_author11"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:text="@string/test" />
+            />
+
+
     </LinearLayout>
 
 </FrameLayout>
