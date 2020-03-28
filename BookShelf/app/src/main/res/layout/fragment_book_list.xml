@@ -3,9 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".BookListFragment"
-    >
-
+    tools:context=".BookListFragment">
     <ListView
         android:id="@+id/booksView"
         android:layout_width="match_parent"

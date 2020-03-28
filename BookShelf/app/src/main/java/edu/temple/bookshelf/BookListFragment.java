@@ -28,10 +28,10 @@ public class BookListFragment extends Fragment {
     private String author;
 
     interface BookSelectedInterface{
-        void BookSelected(String a, String t, int position);
+        void BookSelected(HashMap<String,String> b, int position);
     }
     public BookListFragment() {
-        // Required empty public constructor
+
     }
     @Override
     public void onAttach(Context context){
@@ -43,6 +43,7 @@ public class BookListFragment extends Fragment {
             throw new RuntimeException("Implement the BookSelect interace");
         }
     }
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -54,12 +55,10 @@ public class BookListFragment extends Fragment {
         BookAdapter customaAdapter = new BookAdapter(rootView.getContext(),books);
         bookList.setAdapter(customaAdapter);
 
-      bookList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        bookList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
           @Override
           public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-              author=books.get(position).get("author");
-              title=books.get(position).get("title");
-              parentActivity.BookSelected(author,title, position);
+              parentActivity.BookSelected(books.get(position), position);
 
           }
       });

@@ -33,16 +33,20 @@ public class MainActivity extends AppCompatActivity
         }
     }
 
-    public void BookSelected(String a,String t, int position){
+    public void BookSelected(HashMap<String,String> b, int position){
         BookDetailsFragment b2 = new BookDetailsFragment();
         Bundle args = new Bundle();
+        args.putString("aKey",b.get("author"));
+        args.putString("tKey",b.get("title"));
+
         args.putInt(BookDetailsFragment.Arg_Position,position);
         b2.setArguments(args);
-        getSupportFragmentManager().beginTransaction()
-       .replace(R.id.fragment_container,b2)
-       .addToBackStack(null)
-        .commit();
 
+        getSupportFragmentManager()
+                .beginTransaction()
+                .replace(R.id.fragment_container,b2)
+                .addToBackStack(null)
+                .commit();
     }
 }
 
