@@ -29,7 +29,8 @@ public class MainActivity extends AppCompatActivity
         setContentView(R.layout.activity_main);
 
         if(savedInstanceState ==null){
-            if(findViewById(R.id.Large_fragment_container)  != null) {
+            if(findViewById(R.id.Large_fragment_container)  != null
+                    && (findViewById(R.id.fragment_containerD_Land) == null)) {
                 getSupportFragmentManager()
                         .beginTransaction()
                         .replace(R.id.Large_fragment_container, b1)
@@ -50,22 +51,26 @@ public class MainActivity extends AppCompatActivity
                     .commit();
         }
         }
-
     public void BookSelected(HashMap<String,String> b, int position){
+        BookDetailsFragment b2 = new BookDetailsFragment();
+        Bundle args = new Bundle();
+        args.putInt(BookDetailsFragment.Arg_Position,position);
+        args.putString(BookDetailsFragment.AuthorString,b.get("author"));
+        args.putString(BookDetailsFragment.BookString,b.get("title"));
+        b2.setArguments(args);
+
         if(findViewById(R.id.Large_fragment_container)  != null){
-            b2 = BookDetailsFragment.newInstance(position,b.get("author"),b.get("title"));
             getSupportFragmentManager()
                     .beginTransaction()
                     .replace(R.id.Large_fragment_containerD, b2)
                     .addToBackStack(null)
                     .commit();
         }else if(findViewById(R.id.fragment_containerD_Land) != null){
-            b2 = BookDetailsFragment.newInstance(position,b.get("author"),b.get("title"));
-            getSupportFragmentManager()
-                    .beginTransaction()
-                    .replace(R.id.fragment_containerD_Land, b2)
-                    .addToBackStack(null)
-                    .commit();
+               getSupportFragmentManager()
+                       .beginTransaction()
+                       .replace(R.id.fragment_containerD_Land, b2)
+                       .addToBackStack(null)
+                       .commit();
         }else{
             b2 = BookDetailsFragment.newInstance(position,b.get("author"),b.get("title"));
             getSupportFragmentManager()
