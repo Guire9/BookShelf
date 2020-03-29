@@ -1,7 +1,3 @@
-# SpanishColorActivity
-Maguire Qvale Introduction to Mobile Application Development section 003 Assignment 5 App. 
-A spinner that the user can use to pick the background color. When the spinner is in drop down mode the choices match 
-the color. When an item is selected, the another activity opens with the background set to the chosen color.
-The spinner uses custom ColorAdapter that extends the baseAdapter, and passes the colors to Activity2 using 
-putExtra and getExtra. The spinner can be in Enlgish or Spanish usng Locale. ![TEXT](Screen Shot 2020-03-12 at 8.31.11 AM.png)
-![TEXT](Screen Shot 2020-03-12 at 8.33.02 AM.png)
+# BookShelf
+Maguire Qvale Introduction to Mobile Application Development section 003 Assignment 6 App. 
+Using 2 fragments user can click a book in a ListView and the books title and author will appear. If in portait there is only one fragment on the screen at a time, but in landscape/tablet the two views can be seen at once. The program work in landscape and in potrait, but sometimes crashes when switching from one to the other. If BookDetails is being displayed and user tries to rotate phone it will most likely crash. Problem does not happen when using a tablet.
