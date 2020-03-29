@@ -14,7 +14,11 @@ public class BookHelper {
         newBook("Douglas Adams","The Hitchhiker's Guide to the Galaxy",bookList);
         newBook("Frank Herber","Dune",bookList);
         newBook("Ray Bradbury","Fahrenheit 451",bookList);
-
+        newBook("Herman Melville","Moby Dick",bookList);
+        newBook("Charlotte Bronte","Jane Eyre",bookList);
+        newBook("Mary Shelley.","Frankenstein",bookList);
+        newBook("Mark Twain","The Adventures of Tom Sawyer",bookList);
+        newBook("Jane Austen","Pride and Prejudice",bookList);
         return bookList;
     }
 

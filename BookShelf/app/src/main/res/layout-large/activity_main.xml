@@ -5,14 +5,15 @@
     android:id="@+id/large">
 
     <LinearLayout
-        android:id="@+id/fragment_container_Large"
+        android:id="@+id/Large_fragment_container"
         android:layout_width="200dp"
         android:layout_height="match_parent"
         android:layout_weight=".50"
-        android:orientation="vertical"></LinearLayout>
+        android:orientation="vertical">
+    </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/fragment_container2_Large"
+        android:id="@+id/Large_fragment_containerD"
         android:layout_width="200dp"
         android:layout_height="match_parent"
         android:layout_weight=".50"
