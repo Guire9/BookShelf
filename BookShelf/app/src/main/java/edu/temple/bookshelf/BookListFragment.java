@@ -20,12 +20,15 @@ public class BookListFragment extends Fragment {
     private  BookSelectedInterface parentActivity;
     private View rootView;
     private ListView bookList;
+    private static final String KEY_NAME = "InstanceKey";
 
-    interface BookSelectedInterface{
-        void BookSelected(HashMap<String,String> b, int position);
-    }
-    public BookListFragment() {
 
+    public static BookDetailsFragment newInstance(int x){
+        BookDetailsFragment fragment = new BookDetailsFragment();
+        Bundle bundle = new Bundle();
+        bundle.putInt(KEY_NAME, x);
+        fragment.setArguments(bundle);
+        return fragment;
     }
     @Override
     public void onAttach(Context context){
@@ -55,5 +58,12 @@ public class BookListFragment extends Fragment {
           }
       });
         return rootView;
+    }
+
+    interface BookSelectedInterface{
+        void BookSelected(HashMap<String,String> b, int position);
+    }
+    public BookListFragment() {
+
     }
 }
